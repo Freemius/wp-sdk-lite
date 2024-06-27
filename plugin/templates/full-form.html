@@ -1,0 +1,89 @@
+<h1>Send Requests</h1>
+<p>Using SDK Lite version {{ $sdk_version }}</p>
+<p>Action {{ $action }}</p>
+<?php if (!empty($messages)) : ?>
+<?php foreach ($messages as $message) : ?>
+<div class="message"><?php echo htmlspecialchars($message); ?></div>
+<?php endforeach; ?>
+<?php endif; ?>
+<form action="" method="post">
+    <?php wp_nonce_field('freemius_nonce_action', '_wpnonce'); ?>
+    <table class="form-table" role="presentation">
+        <tbody>
+        <tr>
+            <th scope="row">
+                <label for="plugin_id">Plugin ID</label>
+            </th>
+            <td>
+                <input class="regular-text" type="text" name="plugin_id" id="plugin_id"
+                       value="<?php echo htmlspecialchars($plugin_id); ?>">
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <label for="license_key">License Key</label>
+            </th>
+            <td>
+                <input class="regular-text" type="text" name="license_key" id="license_key">
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">
+                <label for="is_marketing_allowed">Receive Notifications</label>
+            </th>
+            <td>
+                <input type="checkbox" name="is_marketing_allowed" id="is_marketing_allowed">
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">User Details (Optional if license already has user)</th>
+            <td>
+                <fieldset>
+                    <p>
+                        <label for="first_name">First name</label>
+                        <input class="regular-text" type="text" name="first_name" id="first_name">
+                    </p>
+                    <p>
+                        <label for="last_name">Username</label>
+                        <input class="regular-text" type="text" name="last_name" id="last_name">
+                    </p>
+                    <p>
+                        <label for="user_email">Email</label>
+                        <input class="regular-text" type="email" name="user_email" id="user_email">
+                    </p>
+                </fieldset>
+            </td>
+        </tr>
+        <tr>
+            <th scope="row">Actions</th>
+            <td>
+                <p>
+                    <button class="button button-primary" type="submit" name="action"
+                            value="activate_license_by_key">Activate License By Key
+                    </button>
+                </p>
+                <p>
+                    <button class="button button-link" type="submit" name="action"
+                            value="check_activation_status">Check Activation Status
+                    </button>
+                </p>
+                <p>
+                    <button class="button button-link-delete" type="submit" name="action"
+                            value="deactivate_license">Deactivate License
+                    </button>
+                </p>
+                <p>
+                    <button class="button button-link" type="submit" name="action"
+                            value="sync_install">Sync
+                    </button>
+                </p>
+                <p>
+                    <button class="button button-link" type="submit" name="action"
+                            value="get_latest">Get latest release
+                    </button>
+                </p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</form>
