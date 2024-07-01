@@ -1,7 +1,6 @@
 {
   "version": "1.0.0",
   "endpoints": {
-    "wp": "http://wp.freemius:8080",
-    "api": "http://api.freemius-local.com:8080"
+    "api": "https://api.freemius.com"
   }
 }
